@@ -1,6 +1,5 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
-import WaveDivider from '@/components/WaveDivider'
 import Services from '@/components/Services'
 import WhyUs from '@/components/WhyUs'
 import Testimonials from '@/components/Testimonials'
@@ -13,7 +12,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <WaveDivider />
         <Services />
         <WhyUs />
         <Testimonials />

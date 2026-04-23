@@ -1,154 +1,135 @@
 'use client'
 import { useEffect, useRef } from 'react'
 
-const trustBadges = [
-  {
-    label: 'Licensed & Insured',
-    icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>,
-  },
-  {
-    label: '4.9★ · 200+ Reviews',
-    icon: <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>,
-  },
-  {
-    label: 'Same-Week Availability',
-    icon: <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>,
-  },
-]
-
 export default function Hero() {
-  const eyebrow  = useRef<HTMLDivElement>(null)
-  const headline = useRef<HTMLHeadingElement>(null)
-  const sub      = useRef<HTMLParagraphElement>(null)
-  const actions  = useRef<HTMLDivElement>(null)
+  const refs = [
+    useRef<HTMLDivElement>(null),
+    useRef<HTMLHeadingElement>(null),
+    useRef<HTMLParagraphElement>(null),
+    useRef<HTMLDivElement>(null),
+  ]
 
   useEffect(() => {
-    const els = [eyebrow, headline, sub, actions]
-    els.forEach((ref, i) => {
+    refs.forEach((ref, i) => {
       if (!ref.current) return
-      const el = ref.current
-      el.style.transitionDelay = `${i * 0.1}s`
-      setTimeout(() => el.classList.add('visible'), 60)
+      ref.current.style.animationDelay = `${0.1 + i * 0.15}s`
+      ref.current.classList.add('animate-fade-up')
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <section
-      className="relative min-h-svh bg-forest flex flex-col justify-end px-[4vw] pb-[7vh] overflow-hidden"
+      className="relative min-h-screen flex items-end px-6 md:px-[60px] pb-20 pt-[70px] overflow-hidden bg-jet"
       aria-labelledby="hero-headline"
     >
-      {/* Gradient overlay */}
+      {/* Background pattern */}
       <div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none"
         style={{
-          backgroundImage:
-            'radial-gradient(ellipse 80% 60% at 70% 30%, rgba(196,98,45,0.15) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 20% 80%, rgba(61,43,31,0.4) 0%, transparent 70%)',
+          background: `
+            radial-gradient(ellipse 60% 60% at 80% 40%, rgba(61,220,92,0.07) 0%, transparent 70%),
+            repeating-linear-gradient(
+              -45deg,
+              transparent,
+              transparent 40px,
+              rgba(61,220,92,0.015) 40px,
+              rgba(61,220,92,0.015) 41px
+            )
+          `,
         }}
         aria-hidden="true"
       />
 
-      {/* Decorative bg text */}
+      {/* Geometric right panel – desktop only */}
       <div
-        className="absolute top-1/2 -right-[2%] -translate-y-1/2 font-display font-black leading-none pointer-events-none select-none whitespace-nowrap"
-        style={{ fontSize: 'clamp(120px, 20vw, 260px)', color: 'rgba(255,255,255,0.035)', letterSpacing: '-0.04em' }}
+        className="hidden md:block absolute top-0 right-0 bottom-0 w-[48%] z-[1]"
+        style={{
+          clipPath: 'polygon(12% 0, 100% 0, 100% 100%, 0% 100%)',
+          background: 'linear-gradient(135deg, #1a1a1a 0%, #141414 100%)',
+          borderLeft: '2px solid rgba(61,220,92,0.2)',
+        }}
         aria-hidden="true"
       >
-        Craft
-      </div>
-
-      {/* Trust badges – desktop only */}
-      <div
-        className="hidden md:flex absolute top-[88px] right-[4vw] flex-col gap-2.5 items-end"
-        aria-hidden="true"
-      >
-        {trustBadges.map(({ label, icon }) => (
+        <div className="absolute inset-0 flex items-center justify-center pl-16">
           <div
-            key={label}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-md border"
-            style={{
-              background: 'rgba(245,239,224,0.07)',
-              borderColor: 'rgba(245,239,224,0.12)',
-              backdropFilter: 'blur(8px)',
-            }}
+            className="relative w-[200px] h-[200px] rounded-full flex items-center justify-center"
+            style={{ border: '2px solid rgba(61,220,92,0.3)' }}
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-[18px] h-[18px] text-sienna"
-            >
-              {icon}
+            <div
+              className="absolute inset-[-12px] rounded-full"
+              style={{ border: '1px solid rgba(61,220,92,0.12)' }}
+            />
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[100px] h-[100px]">
+              <line x1="20" y1="80" x2="70" y2="30" stroke="#3ddc5c" strokeWidth="5" strokeLinecap="round"/>
+              <rect x="60" y="16" width="26" height="18" rx="3" stroke="#3ddc5c" strokeWidth="4" transform="rotate(45 73 25)"/>
+              <line x1="75" y1="25" x2="85" y2="15" stroke="#3ddc5c" strokeWidth="4" strokeLinecap="round"/>
+              <circle cx="28" cy="72" r="10" stroke="#3ddc5c" strokeWidth="4"/>
+              <line x1="35" y1="65" x2="78" y2="22" stroke="#3ddc5c" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" opacity="0.4"/>
             </svg>
-            <span className="text-[0.78rem] font-medium whitespace-nowrap" style={{ color: 'rgba(245,239,224,0.8)' }}>
-              {label}
-            </span>
           </div>
-        ))}
+        </div>
       </div>
 
       {/* Main content */}
-      <div className="w-[min(1200px,92vw)] mx-auto">
-        <div ref={eyebrow} className="reveal flex items-center gap-3 mb-6">
-          <div className="w-10 h-px bg-sienna" />
-          <span className="font-mono text-[0.72rem] tracking-[0.18em] uppercase" style={{ color: 'rgba(245,239,224,0.65)' }}>
+      <div className="relative z-[2] max-w-[600px]">
+        <div ref={refs[0]} className="opacity-0 flex items-center gap-3 mb-6">
+          <div className="w-12 h-0.5 bg-lime" />
+          <span className="text-[11px] tracking-[3px] uppercase text-lime font-semibold">
             Serving the Dallas Fort Worth Area
           </span>
         </div>
 
         <h1
-          ref={headline}
+          ref={refs[1] as React.RefObject<HTMLHeadingElement>}
           id="hero-headline"
-          className="reveal font-display font-black text-sand italic mb-7"
-          style={{ fontSize: 'clamp(2.8rem, 7vw, 6.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em', maxWidth: '16ch' }}
+          className="opacity-0 font-display text-white tracking-widest mb-3"
+          style={{ fontSize: 'clamp(64px, 8vw, 110px)', lineHeight: 0.9 }}
         >
-          Good Work,<br />
-          <em className="not-italic text-sienna">Done Right.</em>
+          Quality<br />Craftsmanship
+          <em className="not-italic text-lime block">
+            &amp; Creative<br />Solutions
+          </em>
         </h1>
 
         <p
-          ref={sub}
-          className="reveal font-light mb-10 leading-[1.7]"
-          style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', color: 'rgba(245,239,224,0.72)', maxWidth: '42ch' }}
+          ref={refs[2] as React.RefObject<HTMLParagraphElement>}
+          className="opacity-0 text-[16px] font-light leading-[1.7] my-6 max-w-[460px]"
+          style={{ color: '#aaa' }}
         >
-          From a leaky faucet to a full kitchen renovation – we show up on time, do it properly,
-          and leave your home better than we found it. No runaround. No surprises.
+          From custom woodworking to full-scale renovations – we show up on time, build it right,
+          and leave your space better than we found it. No runaround. No surprises.
         </p>
 
-        <div ref={actions} className="reveal flex items-center gap-5 flex-wrap">
+        <div ref={refs[3]} className="opacity-0 flex items-center gap-6 flex-wrap">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 bg-sienna text-cream px-8 py-3.5 rounded text-[0.95rem] font-semibold
-              transition-all duration-200 hover:bg-[#d9703a] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(196,98,45,0.35)]
-              [&:hover_svg]:translate-x-0.5"
+            className="inline-flex items-center gap-2 bg-lime text-jet px-9 py-4 rounded-sm
+              text-[13px] font-bold tracking-[2px] uppercase no-underline
+              transition-all duration-200 hover:bg-lime2 hover:-translate-y-0.5
+              hover:shadow-[0_8px_30px_rgba(61,220,92,0.25)]
+              [&:hover_svg]:translate-x-1"
           >
             Get a Free Quote
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 transition-transform duration-200" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </a>
           <a
-            href="tel:+15551234567"
-            className="inline-flex items-center gap-1.5 text-sand text-[0.95rem] font-medium opacity-80 hover:opacity-100 transition-opacity duration-200"
+            href="tel:8177335323"
+            className="flex items-center gap-2.5 text-silver text-[17px] font-semibold no-underline transition-colors duration-200 hover:text-lime"
           >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
-            </svg>
-            (555) 123-4567
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center"
+              style={{ border: '1px solid rgba(61,220,92,0.3)' }}
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.28 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.63a16 16 0 0 0 5.46 5.46l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            (817) 733-5323
           </a>
         </div>
-      </div>
-
-      {/* Scroll indicator – desktop only */}
-      <div
-        className="hidden md:flex absolute bottom-8 right-[4vw] flex-col items-center gap-1.5 font-mono text-[0.65rem] tracking-[0.15em] uppercase"
-        style={{ color: 'rgba(245,239,224,0.4)' }}
-        aria-hidden="true"
-      >
-        <div className="w-px h-12 animate-scroll-pulse" style={{ background: 'linear-gradient(to bottom, rgba(245,239,224,0.4), transparent)' }} />
-        <span>Scroll</span>
       </div>
     </section>
   )

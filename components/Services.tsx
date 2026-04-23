@@ -5,17 +5,17 @@ const services = [
     name: 'Home Repairs',
     desc: 'Doors that stick, drywall dings, leaky faucets, broken fixtures – the everyday stuff handled properly.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
         <polyline points="9 22 9 12 15 12 15 22"/>
       </svg>
     ),
   },
   {
-    name: 'Carpentry & Trim',
-    desc: 'Custom shelving, baseboards, crown molding, cabinet installs. Built to fit, built to last.',
+    name: 'Custom Woodworking',
+    desc: 'Custom shelving, baseboards, crown molding, cabinet installs, and unique builds. Built to fit, built to last.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <rect x="2" y="3" width="20" height="14" rx="2"/>
         <line x1="8" y1="21" x2="16" y2="21"/>
         <line x1="12" y1="17" x2="12" y2="21"/>
@@ -26,8 +26,10 @@ const services = [
     name: 'Painting & Finishing',
     desc: 'Interior walls, trim, ceilings, and touch-ups. Clean prep, clean lines, no splatter.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="M2 17l10 5 10-5"/>
+        <path d="M2 12l10 5 10-5"/>
       </svg>
     ),
   },
@@ -35,9 +37,9 @@ const services = [
     name: 'Plumbing & Fixtures',
     desc: 'Faucet swaps, toilet repairs, shower installs, minor pipe fixes. We stop the drip.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M19.07 4.93A10 10 0 0 0 4.93 19.07M4.93 4.93A10 10 0 0 0 19.07 19.07"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <circle cx="12" cy="12" r="2"/>
+        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
       </svg>
     ),
   },
@@ -45,17 +47,18 @@ const services = [
     name: 'Electrical Basics',
     desc: 'Outlets, light fixtures, ceiling fans, and switches. Safe, code-compliant work every time.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
       </svg>
     ),
   },
   {
     name: 'Assembly & Installs',
-    desc: 'Furniture assembly, TV mounting, appliance hookups, smart home devices. Box to done.',
+    desc: 'Furniture assembly, TV mounting, appliance hookups, smart home devices, and unique outdoor structures. Box to done.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="#F5EFE0" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-[22px] h-[22px]">
-        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#3ddc5c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
+        <rect x="2" y="7" width="20" height="14" rx="2"/>
+        <path d="M16 7V5a2 2 0 0 0-4 0v2M8 7V5a2 2 0 0 1 2-2"/>
       </svg>
     ),
   },
@@ -63,51 +66,60 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="relative bg-cream py-28 px-[4vw]" aria-labelledby="services-title">
-      <div className="w-[min(1200px,92vw)] mx-auto">
-        {/* Decorative number */}
-        <span
-          className="absolute top-12 right-[4vw] font-display font-black leading-none pointer-events-none select-none text-edge"
-          style={{ fontSize: 'clamp(5rem, 10vw, 9rem)' }}
-          aria-hidden="true"
-        >
-          01
-        </span>
+    <section id="services" className="relative py-[100px] px-6 md:px-[60px]" style={{ background: '#0d0d0d' }}>
+      {/* Decorative number */}
+      <div
+        className="absolute right-[60px] top-[60px] font-display leading-none pointer-events-none select-none"
+        style={{ fontSize: '160px', color: 'rgba(255,255,255,0.03)', letterSpacing: '-4px' }}
+        aria-hidden="true"
+      >
+        01
+      </div>
+
+      <div className="w-[min(1200px,100%)] mx-auto">
+        {/* Label */}
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-10 h-0.5 bg-lime" />
+          <span className="text-[10px] tracking-[3px] uppercase text-lime font-bold">What We Do</span>
+        </div>
 
         {/* Header */}
-        <div className="grid grid-cols-[1fr_auto] items-end gap-8 mb-16">
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-8 h-px bg-sienna" aria-hidden="true" />
-              <span className="font-mono text-[0.72rem] tracking-[0.18em] uppercase text-muted">What We Do</span>
-            </div>
-            <Reveal as="h2" className="font-display font-bold text-forest" style={{ fontSize: 'clamp(2rem,4vw,3.2rem)', lineHeight: 1.1, maxWidth: '18ch' }} id="services-title">
-              No job too small,<br /><em className="text-sienna">no shortcut taken.</em>
-            </Reveal>
-          </div>
-          <Reveal delay={0.1} className="font-light text-muted leading-[1.7] max-w-[36ch]">
-            We handle the fixes, upgrades, and projects that have been on your list.
-            Done with care, done once.
+        <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-16">
+          <Reveal as="h2" className="font-display text-white tracking-wider" style={{ fontSize: 'clamp(42px,5vw,72px)', lineHeight: 0.95 }}>
+            No job too small,<br /><em className="italic text-lime">no shortcut taken.</em>
+          </Reveal>
+          <Reveal delay={0.1} className="max-w-[340px] font-light text-[15px] pt-2" style={{ color: '#888' }}>
+            We handle the fixes, upgrades, and projects that have been on your list. Done with care, done once.
           </Reveal>
         </div>
 
         {/* Grid */}
         <div
-          className="grid gap-[1.5px] bg-edge border-[1.5px] border-edge rounded-[10px] overflow-hidden"
-          style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(min(320px, 100%), 1fr))' }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-px"
+          style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.06)' }}
         >
-          {services.map(({ name, desc, icon }, i) => (
+          {services.map(({ name, desc, icon }) => (
             <Reveal
               key={name}
-              delay={[0, 0.1, 0.2, 0.3, 0.1, 0.2][i]}
-              className="group bg-cream px-8 py-9 flex flex-col gap-4 hover:bg-sand transition-colors duration-300 cursor-default"
+              className="group relative bg-cardbg px-9 py-10 transition-colors duration-300 hover:bg-[#1c1c1c] overflow-hidden cursor-default"
             >
-              <div className="w-11 h-11 bg-forest rounded-lg grid place-items-center mb-1" aria-hidden="true">
+              {/* Arrow decoration */}
+              <div
+                className="absolute bottom-8 right-8 text-xl transition-all duration-200"
+                style={{ color: 'rgba(61,220,92,0.3)' }}
+                aria-hidden="true"
+              >
+                ↗
+              </div>
+              <div
+                className="w-12 h-12 rounded-md mb-5 flex items-center justify-center"
+                style={{ background: 'rgba(61,220,92,0.12)' }}
+                aria-hidden="true"
+              >
                 {icon}
               </div>
-              <div className="font-display text-[1.3rem] font-bold text-forest leading-tight">{name}</div>
-              <p className="text-[0.9rem] text-muted leading-[1.65] flex-1">{desc}</p>
-              <div className="text-sienna text-xl opacity-40 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-200 self-start" aria-hidden="true">→</div>
+              <h3 className="text-[20px] font-bold text-white mb-3 tracking-[0.3px]">{name}</h3>
+              <p className="text-[14px] font-light leading-[1.65]" style={{ color: '#777' }}>{desc}</p>
             </Reveal>
           ))}
         </div>

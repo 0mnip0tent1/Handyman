@@ -8,30 +8,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        sand:   '#F5EFE0',
-        forest: '#2C3E2D',
-        sienna: '#C4622D',
-        cream:  '#FDFAF4',
-        bark:   '#3D2B1F',
-        muted:  '#8A7968',
-        edge:   '#DDD5C0',
+        jet:    '#0a0a0a',
+        darkbg: '#111111',
+        cardbg: '#181818',
+        lime:   '#3ddc5c',
+        lime2:  '#2bb84a',
+        silver: '#e8e8e8',
       },
       fontFamily: {
-        display: ['var(--font-playfair)', 'Georgia', 'serif'],
-        body:    ['var(--font-dm-sans)', 'sans-serif'],
-        mono:    ['var(--font-dm-mono)', 'monospace'],
-      },
-      transitionTimingFunction: {
-        'ease-out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
+        display:    ['var(--font-bebas)', 'sans-serif'],
+        body:       ['var(--font-barlow)', 'sans-serif'],
+        condensed:  ['var(--font-barlow-condensed)', 'sans-serif'],
       },
       keyframes: {
-        scrollPulse: {
-          '0%, 100%': { opacity: '0.4', transform: 'scaleY(1)' },
-          '50%':      { opacity: '0.8', transform: 'scaleY(1.1)' },
+        fadeUp: {
+          from: { opacity: '0', transform: 'translateY(30px)' },
+          to:   { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        'scroll-pulse': 'scrollPulse 2s ease-in-out infinite',
+        'fade-up': 'fadeUp 0.7s ease forwards',
       },
     },
   },

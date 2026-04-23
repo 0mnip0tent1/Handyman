@@ -1,39 +1,42 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
+import { Bebas_Neue, Barlow, Barlow_Condensed } from 'next/font/google'
 import './globals.css'
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-})
-
-const dmMono = DM_Mono({
+const bebasNeue = Bebas_Neue({
   subsets: ['latin'],
   weight: ['400'],
-  variable: '--font-dm-mono',
+  variable: '--font-bebas',
+  display: 'swap',
+})
+
+const barlow = Barlow({
+  subsets: ['latin'],
+  weight: ['300', '400', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-barlow',
+  display: 'swap',
+})
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-barlow-condensed',
   display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: 'Ridgeline Handyman Co. – Built Right, Every Time',
+  title: 'WJ Construction Team LLC – Built Right, Every Time',
   description:
-    'From a leaky faucet to a full kitchen renovation – we show up on time, do it properly, and leave your home better than we found it. Serving the Dallas Fort Worth Area.',
+    'Quality Craftsmanship & Creative Solutions. From custom woodworking to full-scale renovations – we show up on time, build it right, and leave your space better than we found it. Serving the Dallas Fort Worth Area.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}>
-      <body className="bg-cream text-bark leading-relaxed">{children}</body>
+    <html
+      lang="en"
+      className={`${bebasNeue.variable} ${barlow.variable} ${barlowCondensed.variable}`}
+    >
+      <body className="bg-darkbg text-silver leading-relaxed">{children}</body>
     </html>
   )
 }
