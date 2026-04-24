@@ -51,23 +51,12 @@ export default function Hero() {
         }}
         aria-hidden="true"
       >
-        <div className="absolute inset-0 flex items-center justify-center pl-16">
-          <div
-            className="relative w-[200px] h-[200px] rounded-full flex items-center justify-center"
-            style={{ border: '2px solid rgba(61,220,92,0.3)' }}
-          >
-            <div
-              className="absolute inset-[-12px] rounded-full"
-              style={{ border: '1px solid rgba(61,220,92,0.12)' }}
-            />
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-[100px] h-[100px]">
-              <line x1="20" y1="80" x2="70" y2="30" stroke="#3ddc5c" strokeWidth="5" strokeLinecap="round"/>
-              <rect x="60" y="16" width="26" height="18" rx="3" stroke="#3ddc5c" strokeWidth="4" transform="rotate(45 73 25)"/>
-              <line x1="75" y1="25" x2="85" y2="15" stroke="#3ddc5c" strokeWidth="4" strokeLinecap="round"/>
-              <circle cx="28" cy="72" r="10" stroke="#3ddc5c" strokeWidth="4"/>
-              <line x1="35" y1="65" x2="78" y2="22" stroke="#3ddc5c" strokeWidth="3" strokeLinecap="round" strokeDasharray="4 4" opacity="0.4"/>
-            </svg>
-          </div>
+        <div className="absolute inset-0 flex items-end justify-center">
+          <img
+            src="/wj-character.png"
+            alt="WJ Construction worker"
+            className="h-[92%] w-auto object-contain object-bottom"
+          />
         </div>
       </div>
 
