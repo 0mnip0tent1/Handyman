@@ -11,6 +11,7 @@ interface RevealProps {
 }
 
 export default function Reveal({ children, delay = 0, className = '', as: Tag = 'div', style, id }: RevealProps) {
+  const TagComponent = Tag as React.ElementType
   const ref = useRef<any>(null)
 
   useEffect(() => {
@@ -30,13 +31,13 @@ export default function Reveal({ children, delay = 0, className = '', as: Tag = 
   }, [])
 
   return (
-    <Tag
+    <TagComponent
       ref={ref}
       id={id}
       className={`reveal ${className}`}
       style={{ transitionDelay: delay ? `${delay}s` : undefined, ...style }}
     >
       {children}
-    </Tag>
+    </TagComponent>
   )
 }
