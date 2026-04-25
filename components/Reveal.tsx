@@ -11,7 +11,7 @@ interface RevealProps {
 }
 
 export default function Reveal({ children, delay = 0, className = '', as: Tag = 'div', style, id }: RevealProps) {
-  const ref = useRef<HTMLElement>(null)
+  const ref = useRef<any>(null)
 
   useEffect(() => {
     const el = ref.current
@@ -30,7 +30,6 @@ export default function Reveal({ children, delay = 0, className = '', as: Tag = 
   }, [])
 
   return (
-    // @ts-expect-error dynamic tag with ref
     <Tag
       ref={ref}
       id={id}
