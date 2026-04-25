@@ -1,11 +1,11 @@
 'use client'
-import { useEffect, useRef, ReactNode, CSSProperties } from 'react'
+import React, { useEffect, useRef, ReactNode, CSSProperties } from 'react'
 
 interface RevealProps {
   children: ReactNode
   delay?: number
   className?: string
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   style?: CSSProperties
   id?: string
 }
