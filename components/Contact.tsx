@@ -117,8 +117,8 @@ export default function Contact() {
               </div>
               <p className="mt-4 text-[13px]" style={{ color: '#555' }}>
                 Or email us:{' '}
-                <a href="mailto:WJconstuctionteamllc@gmail.com" className="text-lime no-underline hover:underline">
-                  WJconstuctionteamllc@gmail.com
+                <a href="mailto:quotes@wjconstructionteam.com" className="text-lime no-underline hover:underline">
+                  quotes@wjconstructionteam.com
                 </a>
               </p>
             </Reveal>
